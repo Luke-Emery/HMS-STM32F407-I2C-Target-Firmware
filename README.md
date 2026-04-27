@@ -12,14 +12,23 @@ Flash the firmware using [STM32CubeProgrammer](https://www.st.com/en/development
 
 ## Key Information
 📌 Target Address: `0x42`
+
 📌 I2C Pins: `PB6` for *Clock* `PB7` for *Data*
+
 📌 User Button: Press to cycle between values `0`, `25`, `50`, `75`, `100`. Once reaching `100`, the button will reverse the direction.
+
 📌 Reset Button: Resets the hardware.
+
 📌 TX Data: When the button is pressed, the latest value is transmitted when requested by the Controller. Once that value is returned the firmware returns default data until the button is pressed again.
+
 📌 Default data: The firmware transmits a value of `0xFF` if no new data is available when requested by the Controller.
+
 📌 Blue LED: The blue LED illuminates during and for 100 ms after transmitting data to the Controller
+
 📌 Green LED: The green LED illuminates relative to the value from the user button and remains illuminates at that level until the button is pressed, i.e., if the button is pressed and returns `75` the LED will be 75% illuminated.
+
 📌 Probe Point: Pin PD12 can be tested with an Oscilloscope to see the current value being output to the green LED and transmitted by I2C. The pin is PWM'd at 10 kHz between 0-100% duty cycle.
+
 
 > [!IMPORTANT]
 > Please flash the firmware onto a board which does not have the expansion board with the serial interface, allow that board to be used by other members of the cohort who need the serial interface to output UART/USART to the PC.
